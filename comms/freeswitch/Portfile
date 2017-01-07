@@ -14,8 +14,8 @@ homepage    https://freeswitch.org
 platforms   darwin
 license     MPL1.1
 
-checksums   rmd160  25e40f26396500335a1c689ebca4637445b38716 \
-            sha256  20e97d9fba0fb56d59cb5abeb939e762c9dab7cadb463c0a202dd51cb3a6e3d4
+checksums   rmd160  bf2cd689fd52fb62359ee2bc093b2cc7a2d22e7d \
+            sha256  e9cd2e4641a35ea4a0bfb96f14693c2367c252b2819b9d71ef46bbf4f21c5dde
 
 variant git description {Fetch from the git source and make a tarball} {
 # this variant just automates fetching and making a tarball to save time
