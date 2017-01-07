@@ -17,8 +17,8 @@ master_sites    http://files.freeswitch.org/releases/sounds
 worksrcdir      music
 distfiles
 
-default_variants    +16k
-#default_variants    +8k +16k +32k +48k
+default_variants    +s16k
+#default_variants    +s8k +s16k +s32k +s48k
 
 use_configure    no
 build {}
@@ -29,19 +29,19 @@ destroot {
     system "cd ${workpath} && mv ${worksrcdir} ${sounds_dest}"
 }
 
-variant 8k description {Install with 8 kHz sample rate} {
+variant s8k description {Sample rate of 8 kHz} {
     distfiles-append    ${name}-8000-${version}${extract.suffix}
 }
 
-variant 16k description {Install with 16 kHz sample rate} {
+variant s16k description {Sample rate of 16 kHz} {
     distfiles-append    ${name}-16000-${version}${extract.suffix}
 }
 
-variant 32k description {Install with 32 kHz sample rate} {
+variant s32k description {Sample rate of 32 kHz} {
     distfiles-append    ${name}-32000-${version}${extract.suffix}
 }
 
-variant 48k description {Install with 48 kHz sample rate} {
+variant s48k description {Sample rate of 48 kHz} {
     distfiles-append    ${name}-48000-${version}${extract.suffix}
 }
 
