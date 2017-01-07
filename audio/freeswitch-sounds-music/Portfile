@@ -1,0 +1,60 @@
+# -*- coding: utf-8; mode: tcl; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4; truncate-lines: t -*- vim:fenc=utf-8:et:sw=4:ts=4:sts=4
+
+PortSystem  1.0
+
+name        freeswitch-sounds-music
+version     1.0.52
+categories  audio comms net
+description FreeSWITCH Music on Hold soundfiles.
+homepage    https://freeswitch.org
+platforms   darwin
+license     MPL1.1
+
+supported_archs noarch
+depends_lib     port:freeswitch
+
+master_sites    http://files.freeswitch.org/releases/sounds
+worksrcdir      music
+distfiles
+
+default_variants    +16k
+#default_variants    +8k +16k +32k +48k
+
+use_configure    no
+build {}
+
+destroot {
+    set sounds_dest ${destroot}${prefix}/share/freeswitch/sounds
+    xinstall -d ${sounds_dest}
+    system "cd ${workpath} && mv ${worksrcdir} ${sounds_dest}"
+}
+
+variant 8k description {Install with 8 kHz sample rate} {
+    distfiles-append    ${name}-8000-${version}${extract.suffix}
+}
+
+variant 16k description {Install with 16 kHz sample rate} {
+    distfiles-append    ${name}-16000-${version}${extract.suffix}
+}
+
+variant 32k description {Install with 32 kHz sample rate} {
+    distfiles-append    ${name}-32000-${version}${extract.suffix}
+}
+
+variant 48k description {Install with 48 kHz sample rate} {
+    distfiles-append    ${name}-48000-${version}${extract.suffix}
+}
+
+checksums \
+    freeswitch-sounds-music-8000-1.0.52.tar.gz \
+    rmd160  c80fcc7412521b99a90cdbebcb14e0448006c86d \
+    sha256  2491dcb92a69c629b03ea070d2483908a52e2c530dd77791f49a45a4d70aaa07 \
+    freeswitch-sounds-music-16000-1.0.52.tar.gz \
+    rmd160  4ee3a57d0c411e745123803d6f394b4128ac4954 \
+    sha256  93e0bf31797f4847dc19a94605c039ad4f0763616b6d819f5bddbfb6dd09718a \
+    freeswitch-sounds-music-32000-1.0.52.tar.gz \
+    rmd160  4d371d14db02366a8e2aa5108c10394908a72ece \
+    sha256  4129788a638b77c5f85ff35abfcd69793d8aeb9d7833a75c74ec77355b2657a9 \
+    freeswitch-sounds-music-48000-1.0.52.tar.gz \
+    rmd160  cc9897c0064fc62c11d9624301a6355b562c2ce8 \
+    sha256  cc31cdb5b1bd653850bf6e054d963314bcf7c1706a9bf05f5a69bcbd00858d2a
