@@ -1,0 +1,55 @@
+# -*- coding: utf-8; mode: tcl; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4; truncate-lines: t -*- vim:fenc=utf-8:et:sw=4:ts=4:sts=4
+
+PortSystem  1.0
+
+name        freeswitch
+version     1.6.13
+categories  comms net audio
+description FreeSWITCH open source telephony platform.
+long_description \
+    FreeSWITCH is a scalable open source cross-platform telephony \
+    platform designed to route and interconnect popular communication \
+    protocols using audio, video, text or any other form of media.
+homepage    https://freeswitch.org
+platforms   darwin
+license     MPL1.1
+
+checksums   rmd160  25e40f26396500335a1c689ebca4637445b38716 \
+            sha256  20e97d9fba0fb56d59cb5abeb939e762c9dab7cadb463c0a202dd51cb3a6e3d4
+
+variant git description {Fetch from the git source and make a tarball} {
+# this variant just automates fetching and making a tarball to save time
+    fetch.type      git
+    git.url         https://freeswitch.org/stash/scm/fs/freeswitch.git
+    git.branch      v${version}
+    post-fetch {
+    	system "cd ${worksrcpath} && rm -rf .git"
+    	system "cd ${workpath} && tar czf ${worksrcdir}.tar.gz ${worksrcdir}"
+        system "mkdir -p ${prefix}/var/macports/distfiles/${name}"
+    	system "mv ${workpath}/${worksrcdir}.tar.gz ${prefix}/var/macports/distfiles/${name}"
+    }
+}
+
+pre-configure {
+	system "cd ${worksrcpath} && ./bootstrap.sh"
+}
+
+depends_build   port:autoconf port:automake port:libtool port:pkgconfig
+depends_lib     port:jpeg port:libpng port:sqlite3 port:curl port:pcre \
+                port:speex-devel port:ldns port:libopus port:lua port:libsndfile
+# yaml portaudio x264 lots more...
+
+destroot.keepdirs \
+    ${destroot}${prefix}/etc/freeswitch/tls            \
+    ${destroot}${prefix}/var/lib/freeswitch/db         \
+    ${destroot}${prefix}/share/freeswitch/grammar      \
+    ${destroot}${prefix}/var/log/freeswitch            \
+    ${destroot}${prefix}/lib/freeswitch/mod            \
+    ${destroot}${prefix}/lib/pkgconfig                 \
+    ${destroot}${prefix}/var/lib/freeswitch/recordings \
+    ${destroot}${prefix}/var/lib/freeswitch/images     \
+    ${destroot}${prefix}/var/run/freeswitch            \
+    ${destroot}${prefix}/share/freeswitch/scripts      \
+    ${destroot}${prefix}/share/freeswitch/sounds       \
+    ${destroot}${prefix}/var/lib/freeswitch/storage    \
+    ${destroot}${prefix}/var/cache/freeswitch
