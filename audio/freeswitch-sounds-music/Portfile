@@ -52,6 +52,20 @@ subport freeswitch-sounds-en-us-callie {
     worksrcdir  en
 }
 
+subport freeswitch-sounds-en-ca-june {
+    name        freeswitch-sounds-en-ca-june
+    version     1.0.51
+    description FreeSWITCH en-ca June prompts.
+    worksrcdir  en
+}
+
+subport freeswitch-sounds-fr-ca-june {
+    name        freeswitch-sounds-fr-ca-june
+    version     1.0.51
+    description FreeSWITCH fr-ca June prompts.
+    worksrcdir  fr
+}
+
 checksums \
     freeswitch-sounds-music-8000-1.0.52.tar.gz \
     rmd160  c80fcc7412521b99a90cdbebcb14e0448006c86d \
@@ -79,3 +93,31 @@ checksums-append \
     freeswitch-sounds-en-us-callie-48000-1.0.51.tar.gz \
     rmd160  301a6b3cd261837292739faa906e68311d19652c \
     sha256  cfc50f1d9b5d43cb87a9a2c0ce136c37ee85ac3b0e5be930d8dc2c913c4495aa
+
+checksums-append \
+    freeswitch-sounds-en-ca-june-8000-1.0.51.tar.gz \
+    rmd160  f6a37d6719a171278fdd75f7df3a1072f1197c3b \
+    sha256  9aaa9d73cfecfdab7a1fa2d63d65b922b86a405ebb9a31b09b15e58a2af9260a \
+    freeswitch-sounds-en-ca-june-16000-1.0.51.tar.gz \
+    rmd160  c009e8eb288ec5a1e67d134d53a2c00f5afaa63a \
+    sha256  8d0091a2c98e5e06afea6bdd9f6cf2942e937786016037207b85757218b0f7a7 \
+    freeswitch-sounds-en-ca-june-32000-1.0.51.tar.gz \
+    rmd160  78fa170e9c60758072312cc9f65b9918e06950c0 \
+    sha256  8720b363995724792ff4723e1c8218ef95b27cb36208b7258f93bdda72123387 \
+    freeswitch-sounds-en-ca-june-48000-1.0.51.tar.gz \
+    rmd160  3b78da76ea67ddcd3f5fc9e2ba6709a19e7349bc \
+    sha256  d2fce478a95b8d9500a544a00253c81d7e9f639e21980bd689910fac87f30871
+
+checksums-append \
+    freeswitch-sounds-fr-ca-june-8000-1.0.51.tar.gz \
+    rmd160  607f2bc5da81ddf25981a975d4ccf96ceda0d31b \
+    sha256  eada67c61bd62ec420eb017df7524d10de286fba0c2da4800516b9f62c00e78c \
+    freeswitch-sounds-fr-ca-june-16000-1.0.51.tar.gz \
+    rmd160  028ba624456deb648793a2340b6ed95b3247c0b6 \
+    sha256  f942980ad359951ef3f69a324a3299ef86cdb4f8d2c62adaf73a1b95fb39fcc6 \
+    freeswitch-sounds-fr-ca-june-32000-1.0.51.tar.gz \
+    rmd160  f29d41294dd7529307aa9522e716cf5ba2381386 \
+    sha256  8966a0c4daf666018cca6d8ba0f7708e251bed952b015d0ca6a0792341fe531b \
+    freeswitch-sounds-fr-ca-june-48000-1.0.51.tar.gz \
+    rmd160  0b476b2cf6e17c4a57606cb4779fcf921874499e \
+    sha256  abaea558fb5485abdd01d0b1186e03cf508f96ac90492814cc7ed4475e99a1e0
