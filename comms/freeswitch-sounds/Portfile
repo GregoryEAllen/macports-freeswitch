@@ -40,6 +40,9 @@ if {${name} eq ${subport}} {
         port:freeswitch-sounds-fr-ca-june \
         port:freeswitch-sounds-pt-BR-karina \
         port:freeswitch-sounds-ru-RU-elena \
+        port:freeswitch-sounds-sv-se-jakob \
+        port:freeswitch-sounds-zh-cn-sinmei \
+        port:freeswitch-sounds-zh-hk-sinmei
     }
 
 } else {
@@ -64,7 +67,6 @@ if {${name} eq ${subport}} {
         distfiles-append    ${name}-48000-${version}${extract.suffix}
     }
 }
-
 
 subport freeswitch-sounds-music {
     name        freeswitch-sounds-music
@@ -106,6 +108,27 @@ subport freeswitch-sounds-ru-RU-elena {
     version     1.0.51
     description FreeSWITCH ru-RU Elena prompts.
     worksrcdir  ru
+}
+
+subport freeswitch-sounds-sv-se-jakob {
+    name        freeswitch-sounds-sv-se-jakob
+    version     1.0.50
+    description FreeSWITCH sv-se Jakob prompts.
+    worksrcdir  sv
+}
+
+subport freeswitch-sounds-zh-cn-sinmei {
+    name        freeswitch-sounds-zh-cn-sinmei
+    version     1.0.51
+    description FreeSWITCH zh-cn Sinmei prompts.
+    worksrcdir  zh
+}
+
+subport freeswitch-sounds-zh-hk-sinmei {
+    name        freeswitch-sounds-zh-hk-sinmei
+    version     1.0.51
+    description FreeSWITCH zh-hk Sinmei prompts.
+    worksrcdir  zh
 }
 
 checksums \
@@ -191,3 +214,45 @@ checksums-append \
     freeswitch-sounds-ru-RU-elena-48000-1.0.51.tar.gz \
     rmd160  2a2476f303666bc82248933af4b9c498a92a118e \
     sha256  ffd7d34907f6b6ac861e7898d2237ad763f242a17cd23811da28fd7745d3350d
+
+checksums-append \
+    freeswitch-sounds-sv-se-jakob-8000-1.0.50.tar.gz \
+    rmd160  abe2289635c56436201617f1740d81a0ab5d2ef8 \
+    sha256  aa81c97b2954b36d5625d556d2c6764ee79d0c925284ba5ff4c60cb479936b48 \
+    freeswitch-sounds-sv-se-jakob-16000-1.0.50.tar.gz \
+    rmd160  8abe84c8c84170c5426502640a5ae79dec61eb16 \
+    sha256  52da670c651ff598815aed655644b44b891ee158f4c67d048da90056a36ddcf6 \
+    freeswitch-sounds-sv-se-jakob-32000-1.0.50.tar.gz \
+    rmd160  ca781fd9d9b8cf27e4cd22ec3d1340fccdedb9e0 \
+    sha256  160de01069afa827c830595e521b53d95de4b415b48061fb843a1c4025fa17f2 \
+    freeswitch-sounds-sv-se-jakob-48000-1.0.50.tar.gz \
+    rmd160  765327a73a6307ee622961c1426918b5649da1bc \
+    sha256  059889d75926b8e1f39e8d2c33f0e8f744a43c094bbe213a1caa9f26ae9a2799
+
+checksums-append \
+    freeswitch-sounds-zh-cn-sinmei-8000-1.0.51.tar.gz \
+    rmd160  5025431a8f1c828c680be7d6ea07cdf673c05d46 \
+    sha256  764985f39313426ef4a0ea4dd848f05faaced37b91b2c9a22f17d3f77235fae3 \
+    freeswitch-sounds-zh-cn-sinmei-16000-1.0.51.tar.gz \
+    rmd160  636c096b80f4ea972f0f2fa6d0e439534b67daef \
+    sha256  d849a5818ac6630d7c572d728dcd48176a6877defd8c239cb12011528e95c2cd \
+    freeswitch-sounds-zh-cn-sinmei-32000-1.0.51.tar.gz \
+    rmd160  ff8f616a1d43c8c47bd067a7e7ae846fb1b0a580 \
+    sha256  903fda016d2ac053ffe6bc2d4eaf816a66c8043ddc3383d48b7b14335d9ea98e \
+    freeswitch-sounds-zh-cn-sinmei-48000-1.0.51.tar.gz \
+    rmd160  552ad3cfb86d3434f200f09c190e11e1463387aa \
+    sha256  95b9064acec13a0a32b15ea0b44dc408094b4d9dee84b183c5d9150a77e9bb23
+
+checksums-append \
+    freeswitch-sounds-zh-hk-sinmei-8000-1.0.51.tar.gz \
+    rmd160  82d777b0ccdae1bb16befc22dc13f78a78d5450b \
+    sha256  917d08c80969bdaf30f2a63a3b69f542b143614d42c6241503ac655d13864eb0 \
+    freeswitch-sounds-zh-hk-sinmei-16000-1.0.51.tar.gz \
+    rmd160  53853d971dedd9d35a0417e603bcd8503a318e7d \
+    sha256  0950e1d971b4f2ba4decd949406ccd0198fe9c686f246e175c70aafdf9783f30 \
+    freeswitch-sounds-zh-hk-sinmei-32000-1.0.51.tar.gz \
+    rmd160  1223e3f394e9768e9544a09963a5fc30f02d8431 \
+    sha256  97d846ab06b5c84d2c46bec64560556acbfc88eb2080bd325b2c5259a5ae80d0 \
+    freeswitch-sounds-zh-hk-sinmei-48000-1.0.51.tar.gz \
+    rmd160  e4e7734a9584c0ade4a56c6480af3d36790fc9f0 \
+    sha256  bd605be7e536e11f8f67229a95513ef3f177263587c5bca75ccae647f43962a1
