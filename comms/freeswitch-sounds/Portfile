@@ -2,10 +2,10 @@
 
 PortSystem  1.0
 
-name        freeswitch-sounds-music
-version     1.0.52
-categories  audio comms net
-description FreeSWITCH Music on Hold soundfiles.
+name        freeswitch-sounds
+version     1
+categories  comms net audio
+description Virtual port for FreeSWITCH soundfiles.
 homepage    https://freeswitch.org
 platforms   darwin
 license     MPL1.1
@@ -14,7 +14,6 @@ supported_archs noarch
 depends_lib     port:freeswitch
 
 master_sites    http://files.freeswitch.org/releases/sounds
-worksrcdir      music
 distfiles
 
 default_variants    +s16k
@@ -23,26 +22,53 @@ default_variants    +s16k
 use_configure    no
 build {}
 
-destroot {
-    set sounds_dest ${destroot}${prefix}/share/freeswitch/sounds
-    xinstall -d ${sounds_dest}
-    system "cd ${workpath} && mv ${worksrcdir} ${sounds_dest}"
+set sounds_dest  ${destroot}${prefix}/share/freeswitch/sounds
+
+if {${name} eq ${subport}} {
+    destroot {
+        xinstall -d ${sounds_dest}
+        set fid [open ${sounds_dest}/README.txt "w"]
+        puts $fid "freeswitch-sounds-* are installed in this directory."
+        close $fid
+    }
+
+    variant all description {Install all known sound files} {
+        depends_lib-append \
+        port:freeswitch-sounds-music \
+        port:freeswitch-sounds-en-us-callie \
+        port:freeswitch-sounds-en-ca-june \
+        port:freeswitch-sounds-fr-ca-june
+    }
+
+} else {
+    destroot {
+        xinstall -d ${sounds_dest}
+        system "cd ${workpath} && mv ${worksrcdir} ${sounds_dest}"
+    }
+
+    variant s8k description {Sample rate of 8 kHz} {
+        distfiles-append    ${name}-8000-${version}${extract.suffix}
+    }
+
+    variant s16k description {Sample rate of 16 kHz} {
+        distfiles-append    ${name}-16000-${version}${extract.suffix}
+    }
+
+    variant s32k description {Sample rate of 32 kHz} {
+        distfiles-append    ${name}-32000-${version}${extract.suffix}
+    }
+
+    variant s48k description {Sample rate of 48 kHz} {
+        distfiles-append    ${name}-48000-${version}${extract.suffix}
+    }
 }
 
-variant s8k description {Sample rate of 8 kHz} {
-    distfiles-append    ${name}-8000-${version}${extract.suffix}
-}
 
-variant s16k description {Sample rate of 16 kHz} {
-    distfiles-append    ${name}-16000-${version}${extract.suffix}
-}
-
-variant s32k description {Sample rate of 32 kHz} {
-    distfiles-append    ${name}-32000-${version}${extract.suffix}
-}
-
-variant s48k description {Sample rate of 48 kHz} {
-    distfiles-append    ${name}-48000-${version}${extract.suffix}
+subport freeswitch-sounds-music {
+    name        freeswitch-sounds-music
+    version     1.0.52
+    description FreeSWITCH Music on Hold soundfiles.
+    worksrcdir  music
 }
 
 subport freeswitch-sounds-en-us-callie {
