@@ -37,7 +37,9 @@ if {${name} eq ${subport}} {
         port:freeswitch-sounds-music \
         port:freeswitch-sounds-en-us-callie \
         port:freeswitch-sounds-en-ca-june \
-        port:freeswitch-sounds-fr-ca-june
+        port:freeswitch-sounds-fr-ca-june \
+        port:freeswitch-sounds-pt-BR-karina \
+        port:freeswitch-sounds-ru-RU-elena \
     }
 
 } else {
@@ -90,6 +92,20 @@ subport freeswitch-sounds-fr-ca-june {
     version     1.0.51
     description FreeSWITCH fr-ca June prompts.
     worksrcdir  fr
+}
+
+subport freeswitch-sounds-pt-BR-karina {
+    name        freeswitch-sounds-pt-BR-karina
+    version     1.0.51
+    description FreeSWITCH pt-BR Karina prompts.
+    worksrcdir  pt
+}
+
+subport freeswitch-sounds-ru-RU-elena {
+    name        freeswitch-sounds-ru-RU-elena
+    version     1.0.51
+    description FreeSWITCH ru-RU Elena prompts.
+    worksrcdir  ru
 }
 
 checksums \
@@ -147,3 +163,31 @@ checksums-append \
     freeswitch-sounds-fr-ca-june-48000-1.0.51.tar.gz \
     rmd160  0b476b2cf6e17c4a57606cb4779fcf921874499e \
     sha256  abaea558fb5485abdd01d0b1186e03cf508f96ac90492814cc7ed4475e99a1e0
+
+checksums-append \
+    freeswitch-sounds-pt-BR-karina-8000-1.0.51.tar.gz \
+    rmd160  a66b4039dd860fe3859107b85e9d59bfbb5cc93f \
+    sha256  ba9b5d7f97675c560823a6f94804a6716dac66efe203dd1779952518c3944a77 \
+    freeswitch-sounds-pt-BR-karina-16000-1.0.51.tar.gz \
+    rmd160  fcfa8ddebddada2bad1b2857a52f538b8f794759 \
+    sha256  80432c1027f57e464cd899ed92216936cf48a3993dc1c168b1be2545b8f97aed \
+    freeswitch-sounds-pt-BR-karina-32000-1.0.51.tar.gz \
+    rmd160  d3735c01a6e3a05d70a08e0d112f3189cd2e3449 \
+    sha256  e80a8653585cf9a4fe9cf1c0004279602542d15894ba13f2104d990cefdee567 \
+    freeswitch-sounds-pt-BR-karina-48000-1.0.51.tar.gz \
+    rmd160  ea8b65628f54bf23d83a8169206976f083cbf74f \
+    sha256  51ef9cac2dc4dd70d81c18f8e65bfd11de44207e8fac9961a68aa0d50d539870
+
+checksums-append \
+    freeswitch-sounds-ru-RU-elena-8000-1.0.51.tar.gz \
+    rmd160  3fe1174a0ea4ae4c4eaf18a508f1be7d39ca5a7e \
+    sha256  d2679503eb1f4dc1716df5f8c4b5a7b721f087b17e96a02b1a92480311074c66 \
+    freeswitch-sounds-ru-RU-elena-16000-1.0.51.tar.gz \
+    rmd160  aaca67cc8ff2fad15854de105021a574554da7c2 \
+    sha256  e5a354cd10401208291f1d0e668a8cf8215d3cdcb93f2cbd4b83dd134425e60b \
+    freeswitch-sounds-ru-RU-elena-32000-1.0.51.tar.gz \
+    rmd160  a7e48a35f018765ba3e475ae193cbf202cea175f \
+    sha256  a2b43f20246f376d55dd73d269eb238cbeb6a961a40716d2f79a5835344aabfc \
+    freeswitch-sounds-ru-RU-elena-48000-1.0.51.tar.gz \
+    rmd160  2a2476f303666bc82248933af4b9c498a92a118e \
+    sha256  ffd7d34907f6b6ac861e7898d2237ad763f242a17cd23811da28fd7745d3350d
