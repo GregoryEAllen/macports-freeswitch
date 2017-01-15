@@ -37,7 +37,6 @@ pre-configure {
 depends_build   port:autoconf port:automake port:libtool port:pkgconfig
 depends_lib     port:jpeg port:libpng port:sqlite3 port:curl port:pcre \
                 port:speex-devel port:ldns port:libopus port:lua port:libsndfile
-# yaml portaudio x264 lots more...
 
 destroot.keepdirs \
     ${destroot}${prefix}/etc/freeswitch/tls            \
@@ -53,3 +52,18 @@ destroot.keepdirs \
     ${destroot}${prefix}/share/freeswitch/sounds       \
     ${destroot}${prefix}/var/lib/freeswitch/storage    \
     ${destroot}${prefix}/var/cache/freeswitch
+
+variant yaml description {Add YAML language module} {
+    post-configure {
+    	system "cd ${worksrcpath} && perl -pi -e 's{#languages/mod_yaml}{languages/mod_yaml}' modules.conf"
+    }
+    depends_lib-append  port:libyaml
+}
+
+variant portaudio description {Add portaudio and portaudio stream modules} {
+    post-configure {
+    	system "cd ${worksrcpath} && perl -pi -e 's{#endpoints/mod_portaudio}{endpoints/mod_portaudio}' modules.conf"
+    	system "cd ${worksrcpath} && perl -pi -e 's{#formats/mod_portaudio_stream}{formats/mod_portaudio_stream}' modules.conf"
+    }
+    depends_lib-append  port:portaudio
+}
