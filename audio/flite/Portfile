@@ -16,13 +16,28 @@ homepage    http://www.festvox.org/flite/
 platforms   darwin
 license     Carnegie Mellon University
 
-master_sites    http://www.festvox.org/flite/packed/flite-2.0/
+if {${name} eq ${subport}} {
+    master_sites    http://www.festvox.org/flite/packed/flite-2.0/
 
-use_bzip2   yes
-distfiles   ${name}-${version}-release${extract.suffix}
-worksrcdir  ${name}-${version}-release
+    use_bzip2   yes
+    distfiles   ${name}-${version}-release${extract.suffix}
+    worksrcdir  ${name}-${version}-release
 
-checksums   rmd160  b815fe6d674cbba63780a74f4005612351aa260e \
-            sha256  678c3860fd539402b5d1699b921239072af6acb4e72dc4720494112807cae411
+    checksums   rmd160  b815fe6d674cbba63780a74f4005612351aa260e \
+                sha256  678c3860fd539402b5d1699b921239072af6acb4e72dc4720494112807cae411
 
-patchfiles  main-Makefile.diff
+    patchfiles  main-Makefile.diff
+    
+    conflicts   ${name}-devel
+}
+
+subport flite-devel {
+    # A few small patches and a pkg-config package
+    description CMU Flite repackaged by FreeSWITCH.
+    master_sites    http://files.freeswitch.org/downloads/libs/
+    
+    checksums   rmd160  a6323642879c67b796e7b61f1eb66acb51069752 \
+                sha256  4beb74f8f674cf8eec0f1d68e16e1660b32003de10328797aafa61c7d59cc72a
+    
+    conflicts   ${name}
+}
