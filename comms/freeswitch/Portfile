@@ -53,6 +53,13 @@ destroot.keepdirs \
     ${destroot}${prefix}/var/lib/freeswitch/storage    \
     ${destroot}${prefix}/var/cache/freeswitch
 
+variant flite description {Add FLITE Text To Speech module} {
+    post-configure {
+    	system "cd ${worksrcpath} && perl -pi -e 's{#asr_tts/mod_flite}{asr_tts/mod_flite}' modules.conf"
+    }
+    depends_lib-append  port:flite-devel
+}
+
 variant yaml description {Add YAML language module} {
     post-configure {
     	system "cd ${worksrcpath} && perl -pi -e 's{#languages/mod_yaml}{languages/mod_yaml}' modules.conf"
